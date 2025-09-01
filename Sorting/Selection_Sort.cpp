@@ -6,13 +6,9 @@ void selection_sort(int arr[], int n){
     int min = i;
     for (int j = i; j <= n - 1; j++)
     {
-      if (arr[j] < arr[min])
-        min = j;
+      if (arr[j] < arr[min]) min = j;
     }
     swap(arr[i], arr[min]);
-    // int temp =arr[min];
-    // arr[min]=arr[i];
-    // arr[i]=temp;
   }
 }
 int main(){
