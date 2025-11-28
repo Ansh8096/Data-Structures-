@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 double kth_el_op(vector<int> &a1, int n1, vector<int> &a2, int n2, int k){
-  if (n2 < n1)return kth_el_op(a2, n2, a1, n1, k);
+  if (n2 < n1)return kth_el_op(a2, n2, a1, n1, k); // Edge case...
   int l = max(0, k - n1), h = min(k, n1), n = n1 + n2;
   int part = k;
   while (l <= h){
