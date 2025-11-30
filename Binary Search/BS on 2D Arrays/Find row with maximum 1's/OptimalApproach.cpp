@@ -19,7 +19,7 @@ int row_with_max_ones_OP(vector<vector<int>> &a, int n, int m)
   int cnt = 0, max_cnt = 0, idx = -1;
   for (int i = 0; i < n; i++)
   {
-    int cnt_ones = m - lower_boundd(a[i], m, 1); // it will give us the count of 1's in the particular array....
+    int cnt_ones = m - lower_boundd(a[i], m, 1); // it will give us the count of 1's in the particular array...
     if (cnt_ones > max_cnt)
     {
       max_cnt = cnt_ones;
