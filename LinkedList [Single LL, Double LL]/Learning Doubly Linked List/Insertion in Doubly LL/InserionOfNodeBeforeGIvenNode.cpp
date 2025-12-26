@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+using namespace std;
+class Node{
+public:
+  int data;
+  Node *next;
+  Node *back;
+
+public:
+  Node(int data1, Node *next1, Node *back1)
+  {
+    data = data1; // Initialize data with the provided value
+    next = next1; // Initialize next with the provided
+    back = back1; // Initialize back with the provided
+  }
+
+public:
+  Node(int data1)
+  {
+    data = data1;   // Initialize data with the provided value
+    next = nullptr; // Initialize next as null since it's the end of the list
+    back = nullptr; // Initialize next as null since it's the start of the list
+  }
+};
+void print(Node *head)
+{
+
+  while (head)
+  {
+    cout << head->data << " ";
+    head = head->next;
+  }
+}
+Node *convrt_arr_2_DLL(vector<int> &a)
+{
+  Node *head = new Node(a[0]);
+  Node *prev = head;
+  for (int i = 1; i < a.size(); i++)
+  {
+    Node *temp = new Node(a[i], nullptr, prev);
+    prev->next = temp;
+    prev = prev->next;
+  }
+  return head;
+}
+void insert_node_before_given_node(Node* giv_nod,int val){
+  Node* prev = giv_nod->back;
+  Node* new_nod = new Node(val,giv_nod,prev);
+  giv_nod->back = new_nod;
+  prev->next = new_nod;
+}
+int main(){
+  vector<int> a = {12,5,8,7};
+  Node *head = convrt_arr_2_DLL(a);
+
+  int val;
+  cout<<"enter the new val:"<<endl;
+  cin>>val;
+  
+  // insertion of new node before the given node ... 
+  insert_node_before_given_node(head->next->next->next,val);
+  print(head);
+  
+  return 0;                                                                                          
+}
